@@ -1,7 +1,7 @@
 import time
 import numpy as np
 
-from utils import (
+from Utilidades import (
     INTRO_LONGA,
     mensagem_tempo,
     pedir_acao,

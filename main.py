@@ -1,6 +1,6 @@
-from utils import PONTUACAO_INICIAL
-from stage_one import primeiro_estagio
-from stage_two import segundo_estagio
+from Utilidades import PONTUACAO_INICIAL
+from Estagios.Estagio1 import primeiro_estagio
+from Estagios.Estagio2 import segundo_estagio
 
 
 def main():
