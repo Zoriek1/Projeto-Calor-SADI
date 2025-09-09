@@ -74,3 +74,15 @@ def animacao_transicao():
     time.sleep(0.6)
     print("[ACESSO PARCIAL RESTAURADO. NOVA AMEAÇA DETECTADA.]")
 
+
+def mostrar_cada_dez_segundos(inicio_epoca: float, ultimo_marcador: int) -> int:
+    """Mostra na tela a cada 10 s decorridos desde o início.
+
+    Retorna o marcador atual (inteiro de 10 s) para ser mantido pelo chamador.
+    """
+    decorrido = int(time.time() - inicio_epoca)
+    marcador_atual = decorrido // 10
+    if marcador_atual > ultimo_marcador and marcador_atual > 0:
+        print(f"[TEMPO] {marcador_atual * 10} s decorridos.")
+    return marcador_atual
+

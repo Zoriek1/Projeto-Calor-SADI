@@ -7,6 +7,7 @@ from utils import (
     pedir_acao,
     obter_resposta,
     checar_resposta,
+    mostrar_cada_dez_segundos,
     TEMPO_ESTAGIO_1,
     MAX_DICAS,
     PONTUACAO_INICIAL,
@@ -20,6 +21,7 @@ def primeiro_estagio(estado: dict):
     vidas = 3
     pontuacao = PONTUACAO_INICIAL
     inicio = time.time()
+    ultimo_marcador = -1
 
     print(INTRO_LONGA)
     input("(Pressione Enter para começar.)")
@@ -119,6 +121,7 @@ def primeiro_estagio(estado: dict):
         while not acertou and vidas > 0:
             if mensagem_tempo(inicio, TEMPO_ESTAGIO_1) <= 0:
                 return False, pontuacao
+            ultimo_marcador = mostrar_cada_dez_segundos(inicio, ultimo_marcador)
             acao = pedir_acao()
             if acao == "1":
                 if dicas < MAX_DICAS and dicas < len(enigma["dicas"]):

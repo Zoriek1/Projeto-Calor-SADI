@@ -7,6 +7,7 @@ from utils import (
     obter_resposta,
     checar_resposta,
     animacao_transicao,
+    mostrar_cada_dez_segundos,
     TEMPO_ESTAGIO_2,
     MAX_DICAS,
     VALOR_DICA,
@@ -20,6 +21,7 @@ def segundo_estagio(estado: dict, pontuacao_inicial: int):
     vidas = 3
     pontuacao = pontuacao_inicial
     inicio = time.time()
+    ultimo_marcador = -1
 
     animacao_transicao()
     print("\n=== SEGUNDO ESTÁGIO: LABORATÓRIO DE IGNIÇÃO ===")
@@ -102,6 +104,7 @@ def segundo_estagio(estado: dict, pontuacao_inicial: int):
         while not acertou and vidas > 0:
             if mensagem_tempo(inicio, TEMPO_ESTAGIO_2) <= 0:
                 return False, pontuacao
+            ultimo_marcador = mostrar_cada_dez_segundos(inicio, ultimo_marcador)
             acao = pedir_acao()
             if acao == "1":
                 if dicas < MAX_DICAS and dicas < len(enigma["dicas"]):
